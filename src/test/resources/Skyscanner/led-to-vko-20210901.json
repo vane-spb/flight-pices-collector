@@ -1,0 +1,69 @@
+{
+  "Quotes": [
+    {
+      "QuoteId": 1,
+      "MinPrice": 3300,
+      "Direct": true,
+      "OutboundLeg": {
+        "CarrierIds": [
+          1717
+        ],
+        "OriginId": 65540,
+        "DestinationId": 88879,
+        "DepartureDate": "2021-09-01T00:00:00"
+      },
+      "QuoteDateTime": "2021-08-31T19:45:00"
+    }
+  ],
+  "Carriers": [
+    {
+      "CarrierId": 1717,
+      "Name": "Aeroflot"
+    }
+  ],
+  "Places": [
+    {
+      "Name": "St Petersburg Pulkovo",
+      "Type": "Station",
+      "PlaceId": 65540,
+      "IataCode": "LED",
+      "SkyscannerCode": "LED",
+      "CityName": "St Petersburg",
+      "CityId": "PETE",
+      "CountryName": "Russia"
+    },
+    {
+      "Name": "Moscow Vnukovo",
+      "Type": "Station",
+      "PlaceId": 88879,
+      "IataCode": "VKO",
+      "SkyscannerCode": "VKO",
+      "CityName": "Moscow",
+      "CityId": "MOSC",
+      "CountryName": "Russia"
+    }
+  ],
+  "Currencies": [
+    {
+      "Code": "RUB",
+      "Symbol": "₽",
+      "ThousandsSeparator": " ",
+      "DecimalSeparator": ",",
+      "SymbolOnLeft": false,
+      "SpaceBetweenAmountAndSymbol": true,
+      "RoundingCoefficient": 0,
+      "DecimalDigits": 2
+    }
+  ],
+  "Routes": [
+    {
+      "Price": 3300,
+      "QuoteDateTime": "2021-08-31T19:45:00",
+      "OriginId": 65540,
+      "DestinationId": 88879,
+      "QuoteIds": [
+        1
+      ]
+    }
+  ]
+}
