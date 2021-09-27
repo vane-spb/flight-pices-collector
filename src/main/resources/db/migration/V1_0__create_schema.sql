@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS skyscanner_log
     id serial primary key,
     flight_price real,
     is_direct bool,
-    departure_date date,
+    departure_date timestamp,
     carrier_id int,
     carrier_name varchar(100),
     departure_place_id int,
@@ -24,5 +24,6 @@ CREATE TABLE IF NOT EXISTS skyscanner_log
     destination_place_iata_code varchar(5),
     destination_place_name varchar(100),
     destination_city_name varchar(100),
-    quote_date_time date
+    quote_date_time timestamp,
+    request_time timestamp
 );

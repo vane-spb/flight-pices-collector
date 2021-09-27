@@ -3,10 +3,7 @@ package com.example.flightpricescollector.services;
 import com.example.flightpricescollector.Configuration;
 import com.example.flightpricescollector.entities.RequestParameters;
 import com.example.flightpricescollector.entities.SkyscannerLog;
-import com.example.flightpricescollector.pojo.skyscanner.Carrier;
-import com.example.flightpricescollector.pojo.skyscanner.OutboundLeg;
-import com.example.flightpricescollector.pojo.skyscanner.Place;
-import com.example.flightpricescollector.pojo.skyscanner.SkyscanneerResponse;
+import com.example.flightpricescollector.pojo.skyscanner.*;
 import com.example.flightpricescollector.repository.RequestParametersRepository;
 import com.example.flightpricescollector.repository.SkyscannerLogRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -66,6 +63,7 @@ public class SkyscannerDataCollectorService {
     protected List<SkyscannerLog> extractDataFromSkyscannerResponse(SkyscanneerResponse skyscanneerResponse) {
         return skyscanneerResponse.
                 getQuotes().stream()
+                .filter(Quote::isDirect)
                 .map(quote -> {
                     final OutboundLeg outboundLeg = quote.getOutboundLeg();
 
@@ -95,6 +93,7 @@ public class SkyscannerDataCollectorService {
                             .destinationPlaceId(outboundLeg.getDestinationId())
                             .destinationPlaceName(destinationPlace.getName())
                             .quoteDateTime(quote.getQuoteDateTime())
+                            .currentTime(new Date())
                             .build();
                 })
                 .peek(skyscannerLog -> log.info("Extracted: " + skyscannerLog))

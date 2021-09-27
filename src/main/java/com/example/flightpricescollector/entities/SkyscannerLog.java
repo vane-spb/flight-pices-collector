@@ -10,6 +10,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.Objects;
 
@@ -28,6 +30,7 @@ public class SkyscannerLog {
     @Column("is_direct")
     Boolean isDirect;
     @Column("departure_date")
+    @Temporal(TemporalType.TIMESTAMP)
     Date departureDate;
 
     @Column("carrier_id")
@@ -54,7 +57,12 @@ public class SkyscannerLog {
     String destinationCityName;
 
     @Column("quote_date_time")
+    @Temporal(TemporalType.TIMESTAMP)
     Date quoteDateTime;
+
+    @Column("request_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    Date currentTime = new Date();
 
     @Override
     public boolean equals(Object o) {
